@@ -49,18 +49,49 @@
 }
 
 
-        .imagem-inicio, .imagem-adicional, .imagem-extra {
+        .imagem-inicio, .imagem-adicional {
             width: 300px;
             height: auto;
             max-width: 100%;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
+		.imagem-extra {
+			display: none;
+			width: 300px;
+            height: auto;
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+		}
 
-        .imagem-extra {
-            display: none; /* Oculta a imagem por padrão */
-            margin-top: 20px;
-        }
+        .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.imagens-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Garante que as imagens se ajustem em telas menores */
+    gap: 10px; /* Espaço entre as imagens */
+}
+
+.imagens-container img, .imagem-extra {
+    max-width: 100%; /* Limita o tamanho da imagem ao tamanho do container */
+    height: auto; /* Mantém a proporção da imagem */
+    width: 150px; /* Define uma largura fixa para a imagem */
+    object-fit: cover; /* Garante que a imagem não fique distorcida */
+    margin: 10px 0; /* Adiciona espaçamento em cima e embaixo da imagem */
+}
+
+.btn-meu-amor {
+    margin-bottom: 10px; /* Adiciona um espaço entre o botão e a imagem abaixo */
+}
+
 
         .titulo-carta {
             font-size: 48px;
@@ -271,11 +302,11 @@
         <div class="imagens-container" id="imagensContainer">
             <img src="https://drive.google.com/thumbnail?id=1iv0wO6tDr0pO5MABeVcVTLCyj4TmIU79" alt="Imagem de Início" class="imagem-inicio">
             <img src="https://drive.google.com/thumbnail?id=1nyYNAZKy2l4rJmPP467p3IzYnC_4Vntv" alt="Imagem Adicional" class="imagem-adicional">
-            <img src="https://drive.google.com/thumbnail?id=1lGR7VmcNrAVPOsFkC1Xr8wclFYvBPEca" alt="Imagem Extra" class="imagem-extra">
         </div>
         <div class="titulo-carta">Bem-vindo</div>
         <button id="btnAbrir" class="btn-abrir">Abrir</button>
         <button id="btnMeuAmor" class="btn-meu-amor">Meu Amor</button>
+		<img src="https://drive.google.com/thumbnail?id=1lGR7VmcNrAVPOsFkC1Xr8wclFYvBPEca" alt="Imagem Extra" class="imagem-extra" id="imagem-extra">
         <div class="planilha-container" id="planilhaContainer">
             <textarea placeholder="Escreva aqui..."></textarea>
             <button id="btnFecharPlanilha">Fechar</button>
@@ -297,6 +328,7 @@
         <div class="autor" onclick="window.location.href='https://www.instagram.com/willl_2006/'">William Vieira</div>
 
     <script>
+        	
         // Função para mostrar ou ocultar as fotos
         function toggleFotos() {
             const fotosContainer = document.getElementById('fotosContainer');
@@ -310,8 +342,10 @@
         // Função para mostrar o botão Meu Amor
         function mostrarBtnMeuAmor() {
             const btnMeuAmor = document.getElementById('btnMeuAmor');
+			const imgExtra = document.getElementById('imagem-extra');
             btnMeuAmor.classList.remove('hide');
             btnMeuAmor.classList.add('show');
+			imgExtra.style.display = 'block';
         }
 
         // Função para esconder o botão Meu Amor
