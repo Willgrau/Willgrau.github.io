@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROJETO LUIZA</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">
     <style>
         
          body {
@@ -16,15 +17,7 @@
            background-repeat: no-repeat;
            background-color: #ffffff; /* Define uma cor de fundo para as áreas sem imagem */
         }
-
-
-      
-        .container {
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           justify-content: center;
-           padding: 20px;
+		
 }
 
         .imagens-container {
@@ -49,13 +42,16 @@
 }
 
 
-        .imagem-inicio, .imagem-adicional {
-            width: 300px;
-            height: auto;
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
+       .imagem-inicio {
+			position: absolute; /* Define a posição como absoluta */
+			top: 20px; /* Ajusta a distância do topo da tela */
+			left: 20px; /* Ajusta a distância da borda esquerda da tela */
+			width: 150px; /* Define a largura da imagem */
+			height: auto; /* Mantém a proporção da imagem */
+			border-radius: 10px; /* Adiciona bordas arredondadas (opcional) */
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra sutil */
+		}
+
 		.imagem-extra {
 			display: none;
 			width: 300px;
@@ -71,6 +67,10 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
+}
+.container {
+    position: relative; /* Permite que a imagem com posição absoluta se posicione corretamente dentro do container */
+    z-index: 10; /* Ajusta o índice z para que a imagem fique visível */
 }
 
 .imagens-container {
@@ -92,30 +92,31 @@
     margin-bottom: 10px; /* Adiciona um espaço entre o botão e a imagem abaixo */
 }
 
-
-        .titulo-carta {
-            font-size: 48px;
-            font-weight: bold;
-            color: #ffffff;
-            font-family: 'Roboto', sans-serif;
-            text-shadow: 0 0 10px rgba(255, 20, 147, 0.8);
-            z-index: 20;
-        }
+      .titulo-carta {
+			font-family: 'VT323', monospace; /* Aplica a fonte VT323 */
+			font-size: 53px; /* Aumenta o tamanho da fonte para destacar mais */
+			color: #ff66b2; /* Define a cor rosa para o texto */
+			text-align: center; /* Centraliza o texto */
+			margin-top: 200px; /* Margem superior para posicionar o título */
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra sutil para criar um efeito de profundidade */
+			transition: filter 0.5s ease; /* Suaviza a transição do desfoque */
+		}
 
         .btn-abrir {
-            background: linear-gradient(45deg, #ff69b4, #ff1493);
-            border: none;
-            color: white;
-            padding: 15px 30px;
-            font-size: 20px;
-            cursor: pointer;
-            border-radius: 50px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: pulse 2s infinite;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-        }
+            background: linear-gradient(45deg, #ff69b4, #ff1493); /* Define um fundo com um gradiente em 45 graus, variando entre dois tons de rosa */
+			border: none; /* Remove qualquer borda padrão do botão */
+			color: white; /* Define a cor do texto como branco */
+			padding: 15px 30px; /* Adiciona preenchimento interno ao botão: 15px na parte superior e inferior, 30px nas laterais */
+			font-size: 20px; /* Define o tamanho da fonte do texto dentro do botão como 20px */
+			cursor: pointer; /* Faz o cursor mudar para uma mãozinha (indicando um elemento clicável) ao passar o mouse sobre o botão */
+			border-radius: 50px; /* Faz com que as bordas do botão sejam arredondadas com um raio de 50px */
+			box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra ao botão, criando um efeito de profundidade; 0px de deslocamento horizontal, 5px vertical e 15px de difusão, com uma opacidade de 30% */
+			transition: transform 0.3s ease, box-shadow 0.3s ease; /* Define uma transição suave de 0,3 segundos para as transformações e mudanças na sombra, criando um efeito suave ao interagir com o botão */
+			animation: pulse 2s infinite; /* Aplica uma animação chamada 'pulse', com duração de 2 segundos, que se repete infinitamente */
+			font-family: 'Poppins', sans-serif; /* Define a fonte usada no botão como 'Poppins', com uma alternativa padrão 'sans-serif' se a primeira não estiver disponível */
+			font-weight: 600; /* Define o peso da fonte (espessura) como 600, tornando o texto mais grosso */
+			margin-top: 50px; /* Adiciona um espaço de 50px acima do botão, empurrando-o para baixo na página */
+		}
 
         .btn-abrir:hover {
             transform: scale(1.1);
@@ -147,22 +148,7 @@
         .btn-meu-amor.hide {
             display: none;
         }
-
-        .mensagem {
-            font-size: 36px;
-            font-weight: bold;
-            color: #ff1493;
-            margin-top: 20px;
-            display: none;
-            animation: fadeIn 2s ease-in-out;
-            text-shadow: 0 0 8px rgba(255, 20, 147, 0.8);
-            position: absolute;
-            top: 10%; /* Ajuste a posição conforme necessário */
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 15; /* Garante que esteja acima dos outros elementos */
-        }
-
+		
         .autor {
             position: fixed;
             bottom: 5%;
@@ -297,7 +283,7 @@
         }
     </style>
 </head>
-<body>
+<body
     <div class="container">
         <div class="imagens-container" id="imagensContainer">
             <img src="https://drive.google.com/thumbnail?id=1iv0wO6tDr0pO5MABeVcVTLCyj4TmIU79" alt="Imagem de Início" class="imagem-inicio">
@@ -326,6 +312,9 @@
 </div>
 
         <div class="autor" onclick="window.location.href='https://www.instagram.com/willl_2006/'">William Vieira</div>
+		    <audio id="meuAudio">
+        <source src="musica.mp3" type="audio/mpeg">
+		</audio>
 
     <script>
         	
@@ -362,6 +351,14 @@
             document.querySelector('.titulo-carta').style.display = 'none';
             document.querySelector('.btn-abrir').style.display = 'none';
             mostrarBtnMeuAmor(); // Mostra o botão Meu Amor
+			const audio = document.getElementById('meuAudio');
+			if (audio && typeof audio.play === 'function') {
+                audio.play().catch(error => {
+                    console.error('Erro ao tentar reproduzir o áudio:', error);
+                });
+            } else {
+                console.error('O método play não está disponível para o elemento de áudio.');
+            }
         }
 
         // Função para abrir o container de planilha ao clicar no botão Meu Amor
